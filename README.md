@@ -2,7 +2,7 @@
 
 # Final Project: Simulasi & Mitigasi SQL Injection pada Aplikasi SIMKIP
 
-Repositori ini berisi *source code* untuk Final Project mata kuliah **Perancangan Keamanan Sistem dan Jaringan**[cite: 1978, 2031]. Proyek ini berfokus pada analisis kerentanan *SQL Injection* pada sistem login aplikasi SIMKIP dan implementasi mitigasi keamanannya.
+Repositori ini berisi *source code* untuk Final Project mata kuliah **Perancangan Keamanan Sistem dan Jaringan**. Proyek ini berfokus pada analisis kerentanan *SQL Injection* pada sistem login aplikasi SIMKIP dan implementasi mitigasi keamanannya.
 
 **Topik Proyek:** 5. Simulasi Serangan SQL Injection dan Implementasi Input Sanitization.
 
@@ -20,7 +20,7 @@ Ferdi Chahyadi, S.Kom., M.Cs
 ---
 
 ## 🎯 Tujuan Proyek
-1.  Memahami mekanisme serangan *SQL Injection* (SQLi) pada fitur autentikasi[cite: 2111].
+1.  Memahami mekanisme serangan *SQL Injection* (SQLi) pada fitur autentikasi.
 2.  Mendemonstrasikan kerentanan pada kode aplikasi SIMKIP yang belum diamankan (Vulnerable Code).
 3.  Mengimplementasikan teknik pencegahan menggunakan **Prepared Statements** dan **Input Sanitization**.
 

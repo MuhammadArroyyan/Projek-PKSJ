@@ -26,7 +26,7 @@ Ferdi Chahyadi, S.Kom., M.Cs
 
 ## 🛠️ Teknologi yang Digunakan
 * **Bahasa Pemrograman:** PHP Native
-* [cite_start]**Database:** MySQL
+* [cite_start] **Database:** MySQL
 * **Tools Pengujian:** Manual Injection (Browser), SQLMap
 * **Environment:** Laragon
 

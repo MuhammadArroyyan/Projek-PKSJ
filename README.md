@@ -25,7 +25,7 @@ Ferdi Chahyadi, S.Kom., M.Cs
 3.  Mengimplementasikan teknik pencegahan menggunakan **Prepared Statements** dan **Input Sanitization**.
 
 ## 🛠️ Teknologi yang Digunakan
-* **Bahasa Pemrograman:** PHP Native
+* **Bahasa Pemrograman:** PHP Code Igniter 4
 * **Database:** MySQL
 * **Tools Pengujian:** Manual Injection (Browser), SQLMap
 * **Environment:** Laragon

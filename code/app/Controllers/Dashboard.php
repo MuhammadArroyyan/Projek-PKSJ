@@ -13,10 +13,8 @@ class Dashboard extends BaseController
 
         $db = \Config\Database::connect();
         
-        // 1. Tangkap Input Pencarian
         $keyword = $this->request->getGet('keyword');
 
-        // 2. LOGIKA RENTAN (VULNERABLE)
         if ($keyword) {
             $sql = "SELECT * FROM mahasiswa WHERE nama LIKE '%$keyword%' OR jurusan LIKE '%$keyword%'";
         } else {
@@ -29,8 +27,8 @@ class Dashboard extends BaseController
             'username' => $session->get('username'),
             'role'     => $session->get('role'),
             'students' => $query->getResultArray(),
-            'keyword'  => $keyword, // Kirim balik ke view
-            'mode'     => 'VULNERABLE_MODE' // Penanda visual
+            'keyword'  => $keyword,
+            'mode'     => 'VULNERABLE_MODE'
         ];
 
         return view('dashboard_universal', $data);
@@ -40,5 +38,54 @@ class Dashboard extends BaseController
     {
         session()->destroy();
         return redirect()->to('/');
+    }
+
+    public function profile()
+    {
+        $session = session();
+        if (!$session->get('isLoggedIn')) { return redirect()->to('/login'); }
+
+        $db = \Config\Database::connect();
+        
+        $userId = $session->get('id');
+        $userModel = new \App\Models\UserModel($db);
+        $user = $userModel->find($userId);
+
+        if (!$user) {
+            $session->setFlashdata('error', 'User record not found.');
+            return redirect()->to('/dashboard');
+        }
+
+        $data = [
+            'user' => $user,
+            'mode' => 'VULNERABLE_MODE (UPDATE INJECTION READY)'
+        ];
+
+        return view('profile_form', $data);
+    }
+
+    public function updateProfile()
+    {
+        $session = session();
+        if (!$session->get('isLoggedIn')) { return redirect()->to('/login'); }
+        
+        $db = \Config\Database::connect();
+        $request = $this->request;
+
+        $userId = $request->getPost('user_id');
+        $newUsername = $request->getPost('username');
+        $newEmail = $request->getPost('email');
+
+        $sql = "UPDATE users SET username = '$newUsername', email = '$newEmail' WHERE id = $userId";
+
+        try {
+            $db->query($sql);
+            $session->setFlashdata('success', 'Profile updated successfully! (Query executed: ' . htmlspecialchars($sql) . ')');
+        } catch (\Exception $e) {
+            // Error-Based SQLi: Database error ditampilkan langsung ke user jika ada kesalahan sintaks
+            $session->setFlashdata('error', 'Database Error: ' . $e->getMessage());
+        }
+
+        return redirect()->to('/dashboard/profile');
     }
 }

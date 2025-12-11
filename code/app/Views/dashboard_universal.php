@@ -145,7 +145,8 @@
         <div>
             <h1>/// SYSTEM_DATA: <?= $mode ?></h1>
             <div class="user-info" style="margin-top: 10px;">
-                <p>USER: <strong><?= $username ?></strong> | ROLE: <strong><?= $role ?></strong></p>
+                <p>USER: <strong><?= $username ?></strong> | ROLE: <strong><?= $role ?></strong></p>\
+                <p><a href="<?= site_url($mode == 'SECURE_MODE' ? 'secure-dashboard/profile' : 'dashboard/profile') ?>" style="color: yellow; font-size: 0.9em;">[ EDIT_PROFILE ]</a></p>
             </div>
         </div>
         <a href="<?= site_url(($mode == 'SECURE_MODE') ? 'secure-dashboard/logout' : 'dashboard/logout') ?>" class="logout-btn">[ TERMINATE_SESSION ]</a>

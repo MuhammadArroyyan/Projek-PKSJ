@@ -149,13 +149,13 @@
                 <p><a href="<?= site_url($mode == 'SECURE_MODE' ? 'secure-dashboard/profile' : 'dashboard/profile') ?>" style="color: yellow; font-size: 0.9em;">[ EDIT_PROFILE ]</a></p>
             </div>
         </div>
-        <a href="<?= site_url(($mode == 'SECURE_MODE') ? 'secure-dashboard/logout' : 'dashboard/logout') ?>" class="logout-btn">[ TERMINATE_SESSION ]</a>
+        <a href="<?= site_url(($mode == 'SECURE_MODE') ? 'secure-dashboard/logout' : 'dashboard/logout') ?>" class="logout-btn">[ LOGOUT ]</a>
     </div>
 
     <div class="search-box">
         <form action="" method="get" style="width: 100%; display: flex;">
             <input type="text" name="keyword" placeholder="SEARCH STUDENT NAME OR MAJOR..." value="<?= esc($keyword) ?>" autocomplete="off">
-            <button type="submit">SEARCH_DB</button>
+            <button type="submit">SEARCH</button>
         </form>
     </div>
 

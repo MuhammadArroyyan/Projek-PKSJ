@@ -63,8 +63,8 @@ class AuthController extends BaseController
         $username = $this->request->getVar('nama_user');
 
         $sql = "SELECT * FROM users WHERE nama_user = '$username'";
-        
         $query = $this->db->query($sql);
+        
         $user  = $query->getRowArray();
 
         if ($user) {
